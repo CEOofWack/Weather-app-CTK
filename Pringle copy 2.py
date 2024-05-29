@@ -32,7 +32,9 @@ image_label.pack()
 
 ecity = ""
 
+running = True 
 
+while running:
 
 #main function
 def update_weather(event):
