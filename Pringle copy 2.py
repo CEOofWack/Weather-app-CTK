@@ -128,7 +128,7 @@ name_entry.bind('<Return>', lambda event: update_weather(event))
 
 
 update_weather(True)
-title_label.pack(pady = 90,anchor = 'nw')
+title_label.pack()
 msg_label.pack()
 temp_label.pack()
 condition_label.pack()
