@@ -7,19 +7,9 @@ app = CTk()
 app.title('Turtle')
 app.geometry('1000x500')
 app._set_appearance_mode("light")
-#app.set_appearance_mode("")
-
-#def disappear():
-    #msg_button.pack_forget()
- #   msg_label.pack_forget()
-  #  name_entry.pack_forget()
-
-#def clicked():
- #   msg_button.pack()
 
 
 
-#c_img = CTkImage(light_image=Image.open('/Users/bisheralmazloum/Public/Python /snowy.png'),size=(100, 100))
 title_label = CTkLabel(app, text = 'WeatherAPP™',font=('Arial', 25, 'bold'))
 msg_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
 temp_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
@@ -29,19 +19,9 @@ alert_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold
 msg_label2 = CTkLabel(app, text="Select city: ↓↓↓", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA' )
 
 
-
 filename1 = ""
 
-#with Image.open("cloudy.jpg") as cloudy_img:
- #cloudy_img.load()
-#isinstance(w_img, Image.Image)
-#True
-#cloudy_img.show()
 
-
-
-
-#msg_button = CTkButton(app, text="Hello, world!", text_color='yellow', command=disappear, font=('Arial', 20, 'bold'), corner_radius=32, hover_color="orange", border_color='white', border_width=2)
 name_entry = CTkEntry(app, font=('Arial', 25, 'bold'), corner_radius=32, bg_color = '#EBEBEA')
 
 c_img = CTkImage(light_image=Image.open('/Users/bisheralmazloum/Public/Python /snowy.png'), size=(100, 100))
@@ -49,14 +29,6 @@ image_label = CTkLabel(app, image=c_img, text="")
 image_label.pack()
 
 ecity = ""
-
-#ecity = name_entry.get()
-
-#name_entry.bind('<Return>', lambda _: [
-    #msg_label.configure(text=f"Hello {name_entry.get()}! How are you?", font=('papyrus', 25, 'bold'))
-
-#])
-
 
 
 
@@ -147,19 +119,9 @@ def update_weather(event):
  elif 'haze' in condition.lower():
        c_img.configure(light_image=Image.open("/Users/bisheralmazloum/Public/Python /haze.png"))
 
- #c_img = CTkImage(light_image=c_img, size=(100, 100))
+ 
  image_label.configure(image=c_img)
 
-
-
- 
-
-
-
- #c_img = CTkImage(light_image=Image.open(filename1),size=(100, 100))
- #_img.configure(light_image = Image.open(filename1))
- #image_label = CTkLabel(app, image=c_img, text="")
- #image_label.pack()
 
 name_entry.bind('<Return>', lambda event: update_weather(event))
 
@@ -174,7 +136,7 @@ wind_label.pack()
 alert_label.pack()
 msg_label2.pack()
 
-#msg_button.pack()
+
 name_entry.pack()
 
 app.mainloop()
