@@ -4,13 +4,14 @@ from PIL import Image
 
 #because being modern is cool apparently
 
+#Initialize Custom tkinter
 app = CTk()
 app.title('Turtle')
 app.geometry('1000x500')
 app._set_appearance_mode("light")
 
 
-
+#Create labels to display info
 title_label = CTkLabel(app, text = 'WeatherAPP™',font=('Arial', 25, 'bold'))
 msg_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
 temp_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
@@ -33,7 +34,7 @@ ecity = ""
 
 
 
-
+#main function
 def update_weather(event):
  
  filename1 = '/Users/bisheralmazloum/Public/Python /snowy.png'
@@ -42,10 +43,12 @@ def update_weather(event):
 
 
  #Fetch weather information from OpenWeatherMap API
- api = '928c56960d62b32ac062752c50a07679'  
+ #Of course, won't give away mine, you get the idea though.
+ api = 'API_KEY'  
 
  cityid = '6094817'
- 
+
+ #City ID OpenWeather uses to identify cities. Evidently, more can be added.
  if ecity.lower() == "mecca" :
         cityid = '104515'
  elif ecity.lower() == "medina":
@@ -65,12 +68,13 @@ def update_weather(event):
  elif ecity.lower() == 'djibouti':
        cityid = '223817'
  elif ecity.lower() == 'ottawa':
-        cityid = '6094817'  #Ottawa city ID
+        cityid = '6094817'  
 
+ #Requests API info from OpenWeather website with API Key
  apiurl = f'''http://api.openweathermap.org/data/2.5/weather?id={cityid}&appid={api}&units=metric'''
  response = requests.get(apiurl)
 
- 
+ #Gets data if API call is successful, meaning returned status code 200
  if response.status_code == 200:
      data = response.json()
      cityname = data['name']
@@ -80,13 +84,14 @@ def update_weather(event):
      alert = data.get('alerts')
      
     
-    
+     #Displays data in console as raw information, for debugging, checking returned information, etc. 
      print(f"Weather for {cityname}")
      print("Temperature:", temperature)
      print("Wind speed", windspeed)
      print("Condition:", condition)
      print(data)
-    
+
+     #Configures labels 
      msg_label.configure(text=f"Weather for {cityname}: ", font=('Arial', 20, 'bold'))
      temp_label.configure(text=f"Temperature: {temperature}°C", font=('Arial', 20, 'bold'))
      condition_label.configure(text=f"Condition: {condition}", font=('Arial', 20, 'bold'))
@@ -97,6 +102,8 @@ def update_weather(event):
  else:
      print("Failed to fetch weather information.")
 
+ #Decides what image to show based on what type of weather in data() -> condition 
+ #More can be added for less common weather (acid rain?)
  if 'rain' in condition.lower():
       c_img.configure(light_image=Image.open("/Users/bisheralmazloum/Public/Python /rainy.jpeg"))
  elif 'light rain' in condition.lower():
@@ -120,14 +127,14 @@ def update_weather(event):
  elif 'haze' in condition.lower():
        c_img.configure(light_image=Image.open("/Users/bisheralmazloum/Public/Python /haze.png"))
 
- 
+ #Changes image when city is changed if the weather is different
  image_label.configure(image=c_img)
 
-
+#Updates weather based on input name_entry
 name_entry.bind('<Return>', lambda event: update_weather(event))
 
 
-
+#Pack all labels and call function
 update_weather(True)
 title_label.pack()
 msg_label.pack()
@@ -136,9 +143,9 @@ condition_label.pack()
 wind_label.pack()
 alert_label.pack()
 msg_label2.pack()
-
-
 name_entry.pack()
 
+
+#Tkinter mainloop to keep app running
 app.mainloop()
 
