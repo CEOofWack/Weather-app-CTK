@@ -2,6 +2,7 @@ import requests
 from customtkinter import *
 from PIL import Image
 
+#because being modern is cool apparently
 
 app = CTk()
 app.title('Turtle')
@@ -11,11 +12,11 @@ app._set_appearance_mode("light")
 
 
 title_label = CTkLabel(app, text = 'WeatherAPP™',font=('Arial', 25, 'bold'))
-msg_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
-temp_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
-condition_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
-wind_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
-alert_label = CTkLabel(app, text="", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
+msg_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
+temp_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
+condition_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
+wind_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
+alert_label = CTkLabel(app, text="", text_color='Black', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA')
 msg_label2 = CTkLabel(app, text="Select city: ↓↓↓", text_color='Blue', font=('Arial', 25, 'bold'),fg_color= '#EBEBEA' )
 
 
